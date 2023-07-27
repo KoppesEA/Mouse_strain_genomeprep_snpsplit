@@ -2,7 +2,7 @@
 GRCm38 and GRCm39 strain-specific reference genome generated with snp-split
 
 ## Summarry
-The following commands were run to download appropriate GRCm38 and GRCm39 genomes to generate Castenous (Cast_EiJ) specific genomes. While this largely followed the snpsplit genome gen guide (see references) there were some specific issues getting the backdated GRCm38 to work. This was run July 26th 2023 on the PITT HTC.
+The following commands were run to download appropriate GRCm38 and GRCm39 genomes and then to generate Castenous (Cast_EiJ) strain-specific genomes. While this largely followed the snpsplit genome gen guide (see references) there were some specific issues getting the backdated GRCm38 to work. This was run July 26th 2023 on the PITT HTC.
 
 ### Obtain GRCm38 and GRCm39 genomes and place them in separate directories
 `wget -O Mus_musculus.GRCm39.dna.toplevel.fa.gz https://ftp.ensembl.org/pub/release-109/fasta/mus_musculus/dna/Mus_musculus.GRCm39.dna.toplevel.fa.gz &`
