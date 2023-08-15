@@ -27,6 +27,9 @@ From within the output Cast and Nmask directories run the following interactive 
 Generate .tsv with 2 columns (seqname and coordinates) and no header; manually typed out
 For GRCm38_v68 coordinates run `CastEiJ_Samtools_NUP107peakseq_GRCm38_v68.bash` which utilizes `Nup107_mm10peak_GRCm38_v68_imprint.txt` as input .tsv
 
+### Final step was to align in Clustal Omega for each sequence triad (ref/cast/nmask); easiest just to copy paste into web portal
+https://www.ebi.ac.uk/Tools/msa/clustalo/  
+
 ## References and Links
 https://felixkrueger.github.io/SNPsplit/genome_prep/legacy/
 https://ftp.ebi.ac.uk/pub/databases/mousegenomes/

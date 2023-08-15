@@ -4,7 +4,7 @@
 #SBATCH -t 1-00:00
 #SBATCH -J Samtools_mGRC38
 #SBATCH --output=CastEiJ_Samtools_out-%A_%a.txt
-#SBATCH --cpus-per-task=8  ## match samtools @
+#SBATCH --cpus-per-task=8 
 #SBATCH --mem=12g  ##
 
 ## BASH SCRIPT TO EXTRACT GRCm38_68 COORDINATES DEFINED IN BEDFILE FROM REF(B6/C57), CAST AND N-MASKED GENOMES
@@ -45,10 +45,10 @@ while IFS=$'\t' read -r -a rec; do
     echo "Processing Record NAME: " $NAME
     echo "Processing Record COORD: " $COORD
     echo "Processing Record NAME: " $NAME >> $OUT_FA
-    echo "REF B6_" $NAME >> $OUT_FA
+    echo ">REFB6" $NAME >> $OUT_FA
     samtools faidx $REF_GRCm38v68 $COORD >> $OUT_FA
-    echo "CASTEiJ_" $NAME >> $OUT_FA
+    echo ">CASTEiJ_" $NAME >> $OUT_FA
 	samtools faidx $CAST_GRCm38v68 $COORD >> $OUT_FA
-	echo "NMASK_" $NAME >> $OUT_FA
+	echo ">NMASK_" $NAME >> $OUT_FA
 	samtools faidx $NMASK_GRCm38v68 $COORD >> $OUT_FA    
 done < $COORD_LIST
