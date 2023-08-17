@@ -20,7 +20,7 @@ OUT_FA=$CASTDIR/Nup_mm11_GRCm39_genecoord.txt.fa
 
 ## Import Nup107 peaks formatted as manually, remove ## comment out lines
 coords=($(cat $COORD_LIST))
-echo -e "Reporting Ref, CAST and N-masked sequences for:\n" $REF_GRCm38v68 "\n" $CAST_GRCm38v68 "\n" $NMASK_GRCm38v68 "\nbased on:\n" $COORD_LIST 
+echo -e "Reporting Ref, CAST and N-masked sequences for:\n" $REF_GRCm39v109 "\n" $CAST_GRCm39v109 "\n" $NMASK_GRCm39v109 "\nbased on:\n" $COORD_LIST 
 
 ## Load Samtools
 module load gcc/8.2.0
@@ -29,9 +29,9 @@ module load samtools/1.14
 #`_ comment out if done before
 ## Samtools index .fa from Ref, Cast and N-masked GRCm38_68 snp-split generated genomes
 echo "Indexing REF, CAST and NMASK genomes"
-samtools index $REF_GRCm38v68
-samtools index $CAST_GRCm38v68
-samtools index $NMASK_GRCm38v68
+samtools index $REF_GRCm39v109
+samtools index $CAST_GRCm39v109
+samtools index $NMASK_GRCm39v109
 #`
 
 rm $OUT_FA
@@ -39,16 +39,34 @@ touch $OUT_FA
 echo -e "removing and making:\n" $OUT_FA
 
 ## Samtools faidx extract chromosomal coordinates
+## 3 column tsv with name coord strand as input
+## while with if else loop to get reverse comp if feature on (-) strand as specified by faidx -i option
 while IFS=$'\t' read -r -a rec; do
     NAME=${rec[0]}
     COORD=${rec[1]}
+    STRAND=${rec[2]}
     echo "Processing Record NAME: " $NAME
-    echo "Processing Record COORD: " $COORD
+    echo "Processing Record COORD: " $COORD ":" $STRAND
     echo "Processing Record NAME: " $NAME >> $OUT_FA
     echo ">REFB6" $NAME >> $OUT_FA
-    samtools faidx $REF_GRCm38v68 $COORD >> $OUT_FA
-    echo ">CASTEiJ_" $NAME >> $OUT_FA
-	samtools faidx $CAST_GRCm38v68 $COORD >> $OUT_FA
-	echo ">NMASK_" $NAME >> $OUT_FA
-	samtools faidx $NMASK_GRCm38v68 $COORD >> $OUT_FA    
+    if [ "$STRAND" -eq 1 ]; then
+    	samtools faidx $REF_GRCm39v109 $COORD >> $OUT_FA
+    	echo ">CASTEiJ_" $NAME >> $OUT_FA
+		samtools faidx $CAST_GRCm39v109 $COORD >> $OUT_FA
+		echo ">NMASK_" $NAME >> $OUT_FA
+		samtools faidx $NMASK_GRCm39v109 $COORD >> $OUT_FA
+	elif [ "$STRAND" -eq -1 ]; then
+	    samtools faidx -i --mark-strand sign $REF_GRCm39v109 $COORD >> $OUT_FA
+    	echo ">CASTEiJ_" $NAME >> $OUT_FA
+		samtools faidx -i --mark-strand sign $CAST_GRCm39v109 $COORD >> $OUT_FA
+		echo ">NMASK_" $NAME >> $OUT_FA
+		samtools faidx -i --mark-strand sign $NMASK_GRCm39v109 $COORD >> $OUT_FA
+	else
+		echo "Strand-Specifity not set, expecting 3 column tsv with name coord strand as input, Processing as + strand"
+		samtools faidx $REF_GRCm39v109 $COORD >> $OUT_FA
+    	echo ">CASTEiJ_" $NAME >> $OUT_FA
+		samtools faidx $CAST_GRCm39v109 $COORD >> $OUT_FA
+		echo ">NMASK_" $NAME >> $OUT_FA
+		samtools faidx $NMASK_GRCm39v109 $COORD >> $OUT_FA
+	fi
 done < $COORD_LIST

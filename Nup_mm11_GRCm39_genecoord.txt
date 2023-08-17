@@ -1,1 +1,3 @@
-##To add coordinates from genome-editing files on Nup107, 153, and 62
+Nup107	10:117584026:117633610	-1
+Nup153	13:46830881:46886416	-1
+Nup62	7:44460512:44482736	1
