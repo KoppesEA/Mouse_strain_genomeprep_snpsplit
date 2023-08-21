@@ -1,0 +1,15 @@
+Reporting Ref, CAST and N-masked sequences for:
+ /ix1/mmann/KoppesEA/REF_Sequences/Mus_musculus/GRCm39_ref/Mus_musculus.GRCm39.dna.toplevel.fa 
+ /ix1/mmann/KoppesEA/REF_Sequences/Mus_musculus/Cast_EiJ/CastEiJ_GRCm39/CAST_EiJ_full_sequence/Mus_musculus.GRCm39.109.dna.CASTEiJ.fa 
+ /ix1/mmann/KoppesEA/REF_Sequences/Mus_musculus/Cast_EiJ/CastEiJ_GRCm39/CAST_EiJ_N-masked/Mus_musculus.GRCm39.109.dna.NMASK.fa 
+based on:
+ /ix1/mmann/KoppesEA/REF_Sequences/Mus_musculus/Cast_EiJ/CastEiJ_GRCm39/Nup_mm11_GRCm39_genecoord.txt
+Indexing REF, CAST and NMASK genomes
+removing and making:
+ /ix1/mmann/KoppesEA/REF_Sequences/Mus_musculus/Cast_EiJ/CastEiJ_GRCm39/Nup_mm11_GRCm39_genecoord.txt.fa
+Processing Record NAME:  Nup107
+Processing Record COORD:  10:117584026-117633610 : -1
+Processing Record NAME:  Nup153
+Processing Record COORD:  13:46830881-46886416 : -1
+Processing Record NAME:  Nup62
+Processing Record COORD:  7:44460512-44482736 : 1

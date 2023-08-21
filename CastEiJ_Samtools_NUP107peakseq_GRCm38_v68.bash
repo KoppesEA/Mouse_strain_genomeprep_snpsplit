@@ -28,10 +28,11 @@ module load samtools/1.14
 
 #`_ comment out if done before
 ## Samtools index .fa from Ref, Cast and N-masked GRCm38_68 snp-split generated genomes
+## Samtools index .fa from Ref, Cast and N-masked GRCm38_68 snp-split generated genomes to generate .fai
 echo "Indexing REF, CAST and NMASK genomes"
-samtools index $REF_GRCm38v68
-samtools index $CAST_GRCm38v68
-samtools index $NMASK_GRCm38v68
+samtools faidx $REF_GRCm38v68
+samtools faidx $CAST_GRCm38v68
+samtools faidx $NMASK_GRCm38v68
 #`
 
 rm $OUT_FA

@@ -1,0 +1,27 @@
+Reporting Ref, CAST and N-masked sequences for:
+ /ix1/mmann/KoppesEA/REF_Sequences/Mus_musculus/GRCm38_ref/GRCm38_68/Mus_musculus.GRCm38.68.dna.toplevel.fa 
+ /ix1/mmann/KoppesEA/REF_Sequences/Mus_musculus/Cast_EiJ/CastEiJ_GRCm38/CAST_EiJ_full_sequence/Mus_musculus.GRCm38.68.dna.CASTEiJ.fa 
+ /ix1/mmann/KoppesEA/REF_Sequences/Mus_musculus/Cast_EiJ/CastEiJ_GRCm38/CAST_EiJ_N-masked/Mus_musculus.GRCm38.68.dna.NMASK.fa 
+based on:
+ /ix1/mmann/KoppesEA/REF_Sequences/Mus_musculus/Cast_EiJ/CastEiJ_GRCm38/Nup107_mm10peak_GRCm38_v68_imprint.txt
+Indexing REF, CAST and NMASK genomes
+removing and making:
+ /ix1/mmann/KoppesEA/REF_Sequences/Mus_musculus/Cast_EiJ/CastEiJ_GRCm38/Mmus_GRCm38_68_REFCASTNMASK_Nup107imprint.fa
+Processing Record NAME:  KCNQ1ot1_10kb
+Processing Record COORD:  7:143290000-143300000
+Processing Record NAME:  KCNQ1ot1_1.5kb
+Processing Record COORD:  7:143295000-143296500
+Processing Record NAME:  OSBPL5
+Processing Record COORD:  7:143739500-143741500
+Processing Record NAME:  IGF2R_1
+Processing Record COORD:  17:12740000-12745000
+Processing Record NAME:  IGF2R_2
+Processing Record COORD:  17:12767500-12770250
+Processing Record NAME:  SNURF_in1
+Processing Record COORD:  7:60004250-60005500
+Processing Record NAME:  SNURF_PWSIC
+Processing Record COORD:  7:60003000-60007000
+Processing Record NAME:  H19
+Processing Record COORD:  7:142575000-142585000
+Processing Record NAME:  PEG3
+Processing Record COORD:  7:6725000-6735000
